@@ -5,6 +5,8 @@ import { api } from "../../services/api";
 
 import { CartContext } from "../../contexts/CartContext";
 
+import toast from "react-hot-toast";
+
 export interface ProductProps {
   id: number;
   title: string;
@@ -27,6 +29,13 @@ export function Home() {
   }, []);
 
   function handleAddCartItem(product: ProductProps) {
+    toast.success("Produto adicionado no carrinho", {
+      style: {
+        borderRadius: 10,
+        backgroundColor: "#121212",
+        color: "#fff",
+      },
+    });
     addItemCart(product);
   }
 
